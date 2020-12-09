@@ -1,0 +1,7 @@
+baseURL : "http://example.org/"
+languageCode : "en-us"
+title : "Mark Barta"
+theme : "book"
+params:
+    BookTheme : 'dark'
+    BookSearch : false
