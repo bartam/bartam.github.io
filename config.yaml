@@ -1,5 +1,5 @@
 languageCode: "en-us"
-baseUrl: ""
+baseUrl: "https://bartam.github.io/"
 title: "Mark Barta"
 theme: "anubis"
 paginate: 10
