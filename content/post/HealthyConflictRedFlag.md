@@ -27,7 +27,7 @@ Think of Facebook's famous line - "Move fast and break things".   This tells us 
 
 "Healthy Conflict" poses a similar problem. You may  actually mean "honest and open communication".  Or you want to "challenge the status quo". But "healthy conflict" introduces the risk of misinterpretation where conflict is OK.  The last thing you want are bad actors leveraging your values as a defense.
 
-### Assume the ambiguous, State the specific
+> Assume the ambiguous, State the specific
 
 Take it to the next step - how do you want teams to collaborate?  Imagine the perfect culture and describe what they're doing.  Is there pair programming?  Instead of "Collaborate", say "Build Together" or "Mentorship". 
 
