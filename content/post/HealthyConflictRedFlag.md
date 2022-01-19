@@ -2,7 +2,7 @@
 author = "Mark Barta"
 title = "Why Collaboration and Healthy Conflict Shouldn't be part of your culture."
 date = "2022-01-06"
-description = ""
+description = "Clickbait aside - Because they're not specific."
 tags = [
     "Culture"
 ]
@@ -37,7 +37,7 @@ I've also found that the more specific my values are, the easier hiring becomes.
 
 ### Example
 
-The best example I've seen is (Gitlab)[https://about.gitlab.com/handbook/values/]. And I know, they have "Collaboration" as a value.  
+The best example I've seen is [Gitlab](https://about.gitlab.com/handbook/values/). And I know, they have "Collaboration" as a value.  
 
 
 
