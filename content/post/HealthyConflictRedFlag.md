@@ -1,10 +1,10 @@
 +++
 author = "Mark Barta"
-title = 'Why "Collaboration" and "Healthy Conflict" Shouldn't be part of your culture.'
+title = "Why Collaboration and Healthy Conflict Shouldn't be part of your culture."
 date = "2022-01-06"
 description = ""
 tags = [
-    Culture
+    "Culture"
 ]
 categories = [
 
