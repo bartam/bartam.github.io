@@ -1,5 +1,5 @@
 languageCode: "en-us"
-baseUrl: "https://bartamark.com"
+baseUrl: "http://bartamark.com"
 title: "Mark Barta"
 theme: "anubis"
 paginate: 10
