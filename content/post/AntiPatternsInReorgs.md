@@ -10,7 +10,7 @@ categories = [
 
 ]
 favorite = false
-draft = false
+draft = true
 +++
 
 As organizations grow and evolve, it's natural for engineering teams to go through periods of reorganization. However, if not done properly, these reorganizations can actually do more harm than good. In this blog post, I'll explore some of the antipatterns of reorganizing engineering teams and provide some tips on how to avoid them.
