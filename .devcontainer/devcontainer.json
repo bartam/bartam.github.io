@@ -1,0 +1,26 @@
+{
+  "name": "Hugo Blog (Congo)",
+  // hugomods/hugo:exts ships Hugo extended + Go (for Hugo Modules) + Git + Node + Dart Sass.
+  "image": "hugomods/hugo:exts-0.154.5",
+  "workspaceFolder": "/src",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/src,type=bind,consistency=cached",
+  // Pull the Congo theme module after the container is created.
+  "postCreateCommand": "git config --global --add safe.directory /src && hugo mod get",
+  // Live-reload dev server. --bind 0.0.0.0 so it is reachable from the host.
+  "postAttachCommand": "hugo server --bind 0.0.0.0 --baseURL http://localhost --buildDrafts",
+  "forwardPorts": [1313],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo dev server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "budparr.language-hugo-vscode",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  }
+}

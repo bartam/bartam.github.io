@@ -1,0 +1,17 @@
+languageCode = "en-US"
+languageName = "English"
+displayName = "EN"
+title = "Mark Barta"
+weight = 1
+
+[params.author]
+  name = "Mark Barta"
+  image = "img/author.jpg"
+  headline = "Engineering Manager"
+  bio = "Engineering leader writing about scaling teams, culture, and the craft of management."
+  links = [
+    { github = "https://github.com/bartam" },
+    { linkedin = "https://www.linkedin.com/in/bartam" },
+    { x-twitter = "https://x.com/bartamark" },
+    { rss = "/index.xml" },
+  ]
