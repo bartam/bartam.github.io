@@ -50,7 +50,6 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
         run: |
-          hugo mod get
           hugo \
             --gc \
             --minify \
