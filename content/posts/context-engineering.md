@@ -1,61 +1,39 @@
 +++
 author = "Mark Barta"
-title = "Context Engineering"
+title = "My Context Engineering Workflow"
 date = "2026-06-21"
-description = "When models can write the code, the real work moves to context engineering — making sure agents understand the right things at the right time. I built a tool to find out what that work actually looks like."
+description = "Forks, branches, and scratchpads.  Does claude know I'm awkward?"
 tags = [
     "AI Engineering",
     "Context Engineering",
     "Engineering Leadership",
 ]
 categories = []
-aliases = ["/posts/pre-spec-engineering/"]
+aliases = ["/posts/my-context-workflow/"]
 draft = false
 +++
 
 
 
-Writing code isn't the bottleneck anymore. Agents can do the implementation, so the hard part now is making sure they understand the right things at the right time.
+I spend more time iterating with Claude on our plans than anything.  As I read blog posts and reddit threads, it seems like that's common. We're all iterating over markdown files and trying to setup our agents for success.
 
-People call this context engineering. You give agents the right information, then check the conclusions they come to. For a small change it's quick. For a big codebase spread across a few repos, it's most of the work. I spend a lot of time going back and forth with agents, asking different questions, explaining what I want, and figuring out what they actually did.
+My process looks something like this:
+1) Define the outcome clearly
+    - Allow users to log in via a form.
+2) If I know something ahead of time, I'll list that requirement out
+    - Make it a veritcal form and include SSO at the bottom
+3) Claude will identify gaps and offer suggestions
 
-## Prior Art
+On larger projects and code bases, you repeat this quite a few times.  As you break down the project and explore, new questions come up.  I'll wind up having 5-10 sessions open to drill into different repos or to investigate a question.  Some people probably use subagents for this, but that feels clunky to me and not something easy to manage.  When I saw [cmux](https://github.com/manaflow-ai/cmux), I thought it was the perfect tool to manage all my sessions, but I think we need to go past terminal management.
 
-Kiro and Spec-Kit already handle the research → spec → implement loop.
+So I wrote my own this weekend.
 
-What they don't answer is what happens to all those markdown files afterward. Traceability sounds nice, but a pile of dense markdown files sitting next to the code isn't really it:
+![context-manager](/img/context-manager.png)
 
-1. They make cross-repo changes harder to track.
-2. They assume you'll go back and read them, which you won't.
-3. They're overkill for small changes.
+- Clear forking/branching in the UI.  As I drill into problems, I can spawn a new session with the same conversation.  With the UI, I don't have the mental overhead of what session is what.
+- Consolidating agent responses.  Move a child session's response to the parent and continue.  As you make more decisions, this can help build context.
+- Context scratchpad.  Move agent responses to a scratchpad.  Spawn a session with the content from the scratchpad.  This helps start sessions grounded in truth.
+- Group sessions by working directory aka projects.
+- Each session checkpoints the file system.  Go back and forth, rewind and branch without commiting to your changes.
 
-So how do you do the back-and-forth that sharpens what you want without generating a pile of files nobody maintains?
-
-## A PoC for Context Engineering
-
-I built a quick proof of concept to play with this. It has two parts: forking and a context scratchpad.
-
-### Forking
-
-You can fork or rewind a Claude session whenever you want, and each fork keeps the conversation history.
-
-This helps when you're working through an idea. Start high level, branch off to nail down the details, then pull what you learned back into the main thread. Claude Code already does forking, so this isn't new. But having it in the UI makes it easier to keep track of, so I can jump between tasks and projects and still know what belongs where.
-
-![Forking](/img/forking.png)
-
-### Context Scratchpad
-
-As you go, you can copy agent responses into a scratchpad, and then start new sessions with that scratchpad already loaded in.
-
-This is handy for cross-repo work, where I want quick notes tied to the task that don't belong in CLAUDE.md and would otherwise get lost in some architecture doc. It lets me treat a project as a workspace instead of tying it to one repo.
-
-And for the small tasks where something unexpected comes up (so, every day), I can work through it in the scratchpad instead of spinning up a markdown file I'll have to maintain.
-
-![Scratchpad](/img/scratchpad.png)
-
-## What Context Engineering Looks Like
-
-Both of these get at the same thing: how to refine what you want without piling up files. Forking lets you go down a path and come back instead of cramming everything into one long thread. The scratchpad keeps the useful context near the task and lets the rest go.
-
-That's what the job looks like now. The implementation mostly takes care of itself; the work is in the conversation that gets you there. Context engineering just means taking that part seriously and being deliberate about what you hand the agent.
-
+This definitely leans into my process. Now, it's easy for me to take parts of a claude session that I've reviewed and incorporate that into larger decisions.  Each one building on each other until I have a clear, accurate picture of the work.  For larget work, I can compose the plan in the scratchpad and kick off new sessions with that context already.
